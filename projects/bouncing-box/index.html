@@ -25,7 +25,7 @@
 </head>
 <body class="board">
 	<!-- HTML for the box -->
-	<div class="box">?</div>
+	<div class="box">0</div>
 
 	<script>
 		(function(){
@@ -83,8 +83,8 @@
 			*/
 			function handleBoxClick() {
 				positionX = 0;
-				changeBoxText(points);
 				points += 1;
+				changeBoxText(points);
 				speed += 3;
 
 

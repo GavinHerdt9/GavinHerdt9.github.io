@@ -49,7 +49,7 @@
 			var randBlue = Math.random() * 255;
 			var colorStr = " rgb(" + randRed + ", " + randGreen + ", " + randBlue + ")";
 			box.css('background-color', colorStr);
-			var misclicks;
+			var misclicks = 0;
 
 			// Every 50 milliseconds, call the update Function (see below)
 			var interval = setInterval(update, 50);
@@ -124,15 +124,17 @@
 				var randBlue = Math.random() * 255;
 				var colorStr = " rgb(" + randRed + ", " + randGreen + ", " + randBlue + ")";
 				box.css('background-color', colorStr);
+				misclicks -= 1;
 			};
 			function handleBoardClick(){
 				misclicks += 1;
-				if (misclicks >= 10) {
-					endgame;
+				if (misclicks === 10) {
+					endGame();
 				}
 			}
 			function endGame() {
 				clearInterval(interval);
+				alert("Game over!\nFinal Score: " + points + "\n\nRefresh to play again!")
 			}
 		})();
 	</script>

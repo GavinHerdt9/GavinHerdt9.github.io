@@ -28,6 +28,13 @@
 			padding: 10px;
 			margin: 10px;
 		}
+		.score{
+			color: #ffffff;
+			font-size: xx-large;
+			text-align: right;
+			padding: 10px;
+			margin: 10px;
+		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
@@ -36,6 +43,7 @@
 	<!-- HTML for the box -->
 	<div class="box">0</div>
 	<div class="boardtext">Misclicks: 0</div>
+	<div class="score">Score: 0</div>
 
 	<script>
 		(function(){
@@ -59,6 +67,7 @@
 			box.css('background-color', colorStr);
 			var misclicks = 0;
 			var boardText = jQuery('.boardtext');
+			var score = jQuery('.score');
 
 			// Every 50 milliseconds, call the update Function (see below)
 			var interval = setInterval(update, 50);
@@ -80,6 +89,9 @@
 			}
 			function changeBoardTextText(newText) {
 				boardText.text(newText);
+			}
+			function changeScoreText(newText) {
+				score.text(newText);
 			}
 
 			//////////////////////////////////////////////////////////////////
@@ -141,6 +153,7 @@
 			function handleBoardClick(){
 				misclicks += 1;
 				changeBoardTextText("Misclicks: " + misclicks)
+				changeScoreText("Score: " + points)
 				if (misclicks === 10) {
 					endGame();
 				}

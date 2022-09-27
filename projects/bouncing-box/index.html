@@ -21,7 +21,7 @@
 			height: 100vh;
 			background: rgb(25, 25, 25);
 		}
-		.boardtext{
+		.misclick{
 			color: #ffffff;
 			font-size: xx-large;
 			text-align: right;
@@ -42,8 +42,8 @@
 <body class="board">
 	<!-- HTML for the box -->
 	<div class="box">0</div>
-	<div class="boardtext">Misclicks: 0</div>
 	<div class="score">Score: 0</div>
+	<div class="misclick">Misclicks: 0</div>
 
 	<script>
 		(function(){
@@ -66,7 +66,7 @@
 			var colorStr = " rgb(" + randRed + ", " + randGreen + ", " + randBlue + ")";
 			box.css('background-color', colorStr);
 			var misclicks = 0;
-			var boardText = jQuery('.boardtext');
+			var misclick = jQuery('.misclick');
 			var score = jQuery('.score');
 
 			// Every 50 milliseconds, call the update Function (see below)
@@ -87,8 +87,8 @@
 			function changeBoxText(newText) {
 				box.text(newText);
 			}
-			function changeBoardTextText(newText) {
-				boardText.text(newText);
+			function changeMisclickText(newText) {
+				misclick.text(newText);
 			}
 			function changeScoreText(newText) {
 				score.text(newText);
@@ -152,7 +152,7 @@
 			};
 			function handleBoardClick(){
 				misclicks += 1;
-				changeBoardTextText("Misclicks: " + misclicks)
+				changeMisclickText("Misclicks: " + misclicks)
 				changeScoreText("Score: " + points)
 				if (misclicks === 10) {
 					endGame();
@@ -162,6 +162,7 @@
 				clearInterval(interval);
 				alert("Game over!\nFinal Score: " + points + "\n\nRefresh to play again!")
 				misclicks = NaN;
+				points = NaN;
 			}
 		})();
 	</script>

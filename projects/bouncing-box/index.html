@@ -44,7 +44,7 @@
 	<!-- HTML for the box -->
 	<div class="box">0</div>
 	<div class="score">Score: 0</div>
-	<div class="misclick">Misclicks: 0</div>
+	<div class="misclick">Misclicks: 0/10</div>
 
 	<script>
 		(function(){
@@ -153,7 +153,7 @@
 			};
 			function handleBoardClick(){
 				misclicks += 1;
-				changeMisclickText("Misclicks: " + misclicks)
+				changeMisclickText("Misclicks: " + misclicks + "/10")
 				changeScoreText("Score: " + points)
 				if (misclicks === 10) {
 					endGame();

@@ -150,6 +150,10 @@
 				var colorStr = " rgb(" + randRed + ", " + randGreen + ", " + randBlue + ")";
 				box.css('background-color', colorStr);
 				misclicks -= 1;
+				if (points % 10 === 0){
+					speed = speed * 1.25
+					speedY = speedY * 1.2
+				}
 			};
 			function handleBoardClick(){
 				misclicks += 1;

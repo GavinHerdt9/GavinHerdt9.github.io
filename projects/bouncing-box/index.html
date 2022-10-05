@@ -141,8 +141,18 @@
 				positionX = randNumX;
 				points += 1;
 				changeBoxText(points);
-				speed += 3;
-				speedY += 3;
+				if (speed < 0){
+					speed -= 3;
+				}
+				else {
+					speed += 3;
+				}
+				if (speedY < 0){
+					speedY -= 0;
+				}
+				else {
+					speedY += 3;
+				}
 				positionY = randNumY;
 				var randRed = Math.random() * 255;
 				var randGreen = Math.random() * 255;
@@ -150,10 +160,6 @@
 				var colorStr = " rgb(" + randRed + ", " + randGreen + ", " + randBlue + ")";
 				box.css('background-color', colorStr);
 				misclicks -= 1;
-				if (points % 10 === 0){
-					speed = speed * 1.4
-					speedY = speedY * 1.2
-				}
 			};
 			function handleBoardClick(){
 				misclicks += 1;

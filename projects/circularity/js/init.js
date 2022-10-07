@@ -57,7 +57,11 @@ drawCircle()
 
             
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
-           
+            game.checkCirclePosition(circles[0])
+            game.checkCirclePosition(circles[1])
+            game.checkCirclePosition(circles[2])
+            game.checkCirclePosition(circles[3])
+            game.checkCirclePosition(circles[4])
 
             // TODO 9 : Iterate over the array
            
@@ -71,16 +75,21 @@ drawCircle()
         */
         game.checkCirclePosition = function(circle) {
 
-            // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-            if ( circle.x > canvas.width ) {
+            // TODO 6 : YOUR CODE STARTS HERE //////////////////////
+            if ( circle.x > canvas.width ) { //right to left wrap
                 circle.x = 0;
             }
+            else if (circle.x < 0) { //left to right wrap
+                circle.x = canvas.width
+            }
+            if (circle.y > canvas.height) { //bottom to top wrap
+                circle.y = 0
+            }
+            else if (circle.y < 0) { //top to bottom wrap
+                circle.y = canvas.height 
+            }
             
-            // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            
-
-
-            // YOUR TODO 6 CODE ENDS HERE //////////////////////////
+             // YOUR TODO 6 CODE ENDS HERE //////////////////////////
         }
         
         /////////////////////////////////////////////////////////////

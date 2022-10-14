@@ -32,11 +32,9 @@ function drawCircle(){
 }
 
         // TODO 3 / 7 : Call the drawCircle() function 
-drawCircle()
-drawCircle()
-drawCircle()
-drawCircle()
-drawCircle()
+    for (var circleCount = 0; circleCount < 100; circleCount++) {
+        drawCircle()
+    }
 
         ////////////////////////////////////////////////////////////
         ///////////////// PROGRAM LOGIC ////////////////////////////

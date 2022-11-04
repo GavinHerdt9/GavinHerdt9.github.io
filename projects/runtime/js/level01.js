@@ -19,6 +19,9 @@ var level01 = function (window) {
                 { "type": "sawblade", "x": 400, "y": groundY },
                 { "type": "sawblade", "x": 600, "y": groundY },
                 { "type": "sawblade", "x": 900, "y": groundY },
+                { "type": "barrel", "x": 400, "y": groundY },
+                { "type": "barrel", "x": 600, "y": groundY },
+                { "type": "barrel", "x": 900, "y": groundY }
             ]
         };
         window.levelData = levelData;
@@ -29,7 +32,7 @@ var level01 = function (window) {
         // BEGIN EDITING YOUR CODE HERE
         function createSawBlade(x, y) {
             var hitZoneSize = 25;
-            var damageFromObstacle = 10;
+            var damageFromObstacle = 20;
             var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
             sawBladeHitZone.x = x;
             sawBladeHitZone.y = y;
@@ -40,9 +43,27 @@ var level01 = function (window) {
             obstacleImage.y = -25
         }
 
+        function createBarrel(x, y) {
+            var barrelHitZoneSize = 25;
+            var damageFromBarrel = 10;
+            var barrelHitZone = game.createObstacle(barrelHitZoneSize, damageFromBarrel);
+            barrelHitZone.x = x;
+            barrelHitZone.y = y;
+            game.addGameItem(barrelHitZone);
+            var barrelImage = draw.bitmap("img/sawblade.png");
+            barrelHitZone.addChild(barrelImage);
+            barrelImage.x = -25
+            barrelImage.y = -25
+        }
+
         createSawBlade(800, groundY - 20)
         createSawBlade(1600, groundY - 155)
         createSawBlade(2200, groundY - 45)
+        createSawBlade(1200, groundY - 30)
+
+        createBarrel(1000, groundY - 20)
+        createBarrel(2000, groundY - 20)
+        createBarrel(2400, groundY - 20)
         
         // DO NOT EDIT CODE BELOW HERE
     }

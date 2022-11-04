@@ -18,10 +18,7 @@ var level01 = function (window) {
             "gameItems": [
                 { "type": "sawblade", "x": 400, "y": groundY },
                 { "type": "sawblade", "x": 600, "y": groundY },
-                { "type": "sawblade", "x": 900, "y": groundY },
-                { "type": "barrel", "x": 400, "y": groundY },
-                { "type": "barrel", "x": 600, "y": groundY },
-                { "type": "barrel", "x": 900, "y": groundY }
+                { "type": "sawblade", "x": 900, "y": groundY }
             ]
         };
         window.levelData = levelData;
@@ -64,6 +61,50 @@ var level01 = function (window) {
         createBarrel(1000, groundY - 20)
         createBarrel(2000, groundY - 20)
         createBarrel(2400, groundY - 20)
+
+
+        function createEnemy (x, y, velX, velY, rot){
+            var enemy = game.createGameItem("enemy", 25);
+            var redSquare = draw.rect(50, 50, "red");
+            redSquare.x = -25;
+            redSquare.y = -25;
+            enemy.addChild(redSquare);
+            enemy.x = x;
+            enemy.y = y;
+            enemy.velocityX = velX
+            enemy.velocityY = velY
+            enemy.rotationalVelocity = rot
+            game.addGameItem(enemy);
+            enemy.onPlayerCollision = function () {
+                game.changeIntegrity(-15)
+            };
+            enemy.onProjectileCollision = function () {
+                game.increaseScore(100);
+                enemy.flyTo(x, -20);
+            }
+        }
+
+        createEnemy(1200, groundY - 40, -2, 0, 2)
+        createEnemy(900, groundY - 40, -2, -.05, -.5)
+
+        function createTrophy(x, y){
+            var trophy = game.createGameItem("trophy", 25);
+            var goldenRectangle = draw.rect(50, 70, "gold");
+            goldenRectangle = -25;
+            goldenRectangle = -25;
+            trophy.addChild(goldenRectangle);
+            trophy.x = x;
+            trophy.y = y;
+            trophy.velocityX = -2
+            trophy.rotationalVelocity = -1
+            game.addGameItem(trophy);
+            game.increaseScore(300)
+        }
+
+        createTrophy(500, groundY - 20)
+
+        
+
         
         // DO NOT EDIT CODE BELOW HERE
     }

@@ -16,9 +16,10 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 400, "y": groundY },
-                { "type": "sawblade", "x": 600, "y": groundY },
-                { "type": "sawblade", "x": 900, "y": groundY }
+                { "type": "sawblade", "x": 800, "y": groundY - 20},
+                { "type": "sawblade", "x": 1000, "y": groundY - 155},
+                { "type": "sawblade", "x": 2200, "y": groundY - 45},
+                { "type": "sawblade", "x": 1200, "y": groundY - 30}
             ]
         };
         window.levelData = levelData;
@@ -90,18 +91,20 @@ var level01 = function (window) {
         function createTrophy(x, y){
             var trophy = game.createGameItem("trophy", 25);
             var goldenRectangle = draw.rect(50, 70, "gold");
-            goldenRectangle = -25;
-            goldenRectangle = -25;
+            goldenRectangle.x = -25;
+            goldenRectangle.y = -25;
             trophy.addChild(goldenRectangle);
             trophy.x = x;
             trophy.y = y;
             trophy.velocityX = -2
-            trophy.rotationalVelocity = -1
             game.addGameItem(trophy);
-            game.increaseScore(300)
+            trophy.onPlayerCollision = function () {
+                game.increaseScore(300)
+            };
+            
         }
 
-        createTrophy(500, groundY - 20)
+        createTrophy(2600, groundY - 40)
 
         
 

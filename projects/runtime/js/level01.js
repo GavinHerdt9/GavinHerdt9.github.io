@@ -19,7 +19,13 @@ var level01 = function (window) {
                 { "type": "sawblade", "x": 800, "y": groundY - 20},
                 { "type": "sawblade", "x": 1000, "y": groundY - 155},
                 { "type": "sawblade", "x": 2200, "y": groundY - 45},
-                { "type": "sawblade", "x": 1200, "y": groundY - 30}
+                { "type": "sawblade", "x": 1200, "y": groundY - 30},
+                { "type": "barrel", "x": 1000, "y": groundY - 20},
+                { "type": "barrel", "x": 2000, "y": groundY - 20},
+                { "type": "barrel", "x": 2400, "y": groundY - 20},
+                { "type": "enemy", "x": 1200, "y": groundY - 40, "velX": -2, "velY": 0, "rot": 2},
+                { "type": "enemy", "x": 900, "y": groundY - 40, "velX": -2, "velY": -.05, "rot": -.5},
+                { "type": "trophy", "x": 2600, "y": groundY - 40}
             ]
         };
         window.levelData = levelData;
@@ -54,14 +60,14 @@ var level01 = function (window) {
             barrelImage.y = -25
         }
 
-        createSawBlade(800, groundY - 20)
-        createSawBlade(1600, groundY - 155)
-        createSawBlade(2200, groundY - 45)
-        createSawBlade(1200, groundY - 30)
+        //createSawBlade(800, groundY - 20)
+        //createSawBlade(1600, groundY - 155)
+        //createSawBlade(2200, groundY - 45)
+        //createSawBlade(1200, groundY - 30)
 
-        createBarrel(1000, groundY - 20)
-        createBarrel(2000, groundY - 20)
-        createBarrel(2400, groundY - 20)
+        //createBarrel(1000, groundY - 20)
+        //createBarrel(2000, groundY - 20)
+        //createBarrel(2400, groundY - 20)
 
 
         function createEnemy (x, y, velX, velY, rot){
@@ -85,8 +91,8 @@ var level01 = function (window) {
             }
         }
 
-        createEnemy(1200, groundY - 40, -2, 0, 2)
-        createEnemy(900, groundY - 40, -2, -.05, -.5)
+        //createEnemy(1200, groundY - 40, -2, 0, 2)
+        //createEnemy(900, groundY - 40, -2, -.05, -.5)
 
         function createTrophy(x, y){
             var trophy = game.createGameItem("trophy", 25);
@@ -104,7 +110,11 @@ var level01 = function (window) {
             
         }
 
-        createTrophy(2600, groundY - 40)
+        //createTrophy(2600, groundY - 40)
+
+        for (var i = 0; i < gameItems.length; i++) {
+            
+        }
 
         
 

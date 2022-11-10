@@ -54,7 +54,7 @@ var level01 = function (window) {
             barrelHitZone.x = x;
             barrelHitZone.y = y;
             game.addGameItem(barrelHitZone);
-            var barrelImage = draw.bitmap("img/sawblade.png");
+            var barrelImage = draw.bitmap("img/barrel.png");
             barrelHitZone.addChild(barrelImage);
             barrelImage.x = -25
             barrelImage.y = -25

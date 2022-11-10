@@ -23,7 +23,7 @@ var level01 = function (window) {
                 { "type": "barrel", "x": 1000, "y": groundY - 20},
                 { "type": "barrel", "x": 2000, "y": groundY - 20},
                 { "type": "barrel", "x": 2400, "y": groundY - 20},
-                { "type": "enemy", "x": 1200, "y": groundY - 40, "velX": -2, "velY": 0, "rot": 2},
+                { "type": "enemy", "x": 1400, "y": groundY - 40, "velX": -2, "velY": 0, "rot": 2},
                 { "type": "enemy", "x": 900, "y": groundY - 40, "velX": -2, "velY": -.05, "rot": -.5},
                 { "type": "trophy", "x": 2600, "y": groundY - 40}
             ]
@@ -60,14 +60,6 @@ var level01 = function (window) {
             barrelImage.y = -25
         }
 
-        //createSawBlade(800, groundY - 20)
-        //createSawBlade(1600, groundY - 155)
-        //createSawBlade(2200, groundY - 45)
-        //createSawBlade(1200, groundY - 30)
-
-        //createBarrel(1000, groundY - 20)
-        //createBarrel(2000, groundY - 20)
-        //createBarrel(2400, groundY - 20)
 
 
         function createEnemy (x, y, velX, velY, rot){
@@ -91,8 +83,6 @@ var level01 = function (window) {
             }
         }
 
-        //createEnemy(1200, groundY - 40, -2, 0, 2)
-        //createEnemy(900, groundY - 40, -2, -.05, -.5)
 
         function createTrophy(x, y){
             var trophy = game.createGameItem("trophy", 25);
@@ -110,9 +100,20 @@ var level01 = function (window) {
             
         }
 
-        //createTrophy(2600, groundY - 40)
 
-        for (var i = 0; i < gameItems.length; i++) {
+        for (var i = 0; i < levelData.gameItems.length; i++) {
+            if (levelData.gameItems[i].type === "sawblade") {
+                createSawBlade(levelData.gameItems[i].x, levelData.gameItems[i].y)
+            }
+            else if (levelData.gameItems[i].type === "barrel") {
+                createBarrel(levelData.gameItems[i].x, levelData.gameItems[i].y)
+            }
+            else if (levelData.gameItems[i].type === "enemy") {
+                createEnemy(levelData.gameItems[i].x, levelData.gameItems[i].y, levelData.gameItems[i].velX, levelData.gameItems[i].velY, levelData.gameItems[i].rot)
+            }
+            else if (levelData.gameItems[i].type === "trophy") {
+                createTrophy(levelData.gameItems[i].x, levelData.gameItems[i].y)
+            }
             
         }
 

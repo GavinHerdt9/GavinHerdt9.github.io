@@ -11,6 +11,7 @@ var level01 = function (window) {
 
         // this data will allow us to define all of the
         // behavior of our game
+        hud.updateOf(-9500)
         var levelData = {
             "name": "Robot Romp",
             "number": 1, 
